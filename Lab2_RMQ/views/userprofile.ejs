@@ -1,0 +1,274 @@
+<html>
+<head>
+    <title>Ebay Clone</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <label style="margin-left:60px">
+			 <span style="color:#e53238;font-size:40px">e<span style="color:#0064d3">b<span style="color:#f4ae01">a<span
+                                 style="color:#88b719">y</span>
+            </label>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="continue()">
+                                <span class="glyphicon glyphicon-share-alt"></span>Continue shopping
+                            </button>
+
+
+                        </div>
+
+                        <div class="col-xs-4 col-md-offset-2">
+                            <h4>User Details</h4>
+
+                        </div>
+                    </div></div>
+
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>User Profile</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="col-md-2">
+                                <h5 ng-model="firstname">First Name: {{firstname}} </h5>
+
+                                <h5 ng-model="user">Username: {{user}}</h5>
+
+                            </td>
+                            <td class="col-md-2"><h5 ng-model="lastname">Last Name: {{lastname}}</h5></td>
+                            <td class="col-md-2" style="text-align: center">
+                                <div class="input-group">
+
+                                </div>
+                            </td>
+
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--user bids-->
+
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>User Bids</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+
+                        <tr>
+                            <td>Product Id</td>
+                            <td>Product Description</td>
+                            <td>Bid Amount</td>
+                            <td>Quantity</td>
+                            <td>Time of bid</td>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="x in bid track by $index">
+                            <td><h5>{{x.id}} </h5></td>
+                            <td><h5>{{x.title}} </h5></td>
+                            <td><h5>{{x.bidamt}}</h5> </td>
+                            <td><h5>{{x.quantity}}</h5></td>
+                            <td><h5>{{x.timestamp}}</h5></td>
+
+                        </tr>
+                       </table>
+                </div>
+
+
+                <!--user purchases-->
+
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>User Purchases</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+
+                        <tr>
+                            <td>Product Id</td>
+                            <td>Product Description</td>
+                            <td>Bid Amount</td>
+                            <td>Quantity</td>
+                            <td>Time of bid</td>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="x in buy track by $index">
+                            <td><h5>{{x.id}} </h5></td>
+                            <!--td><h5>{{x.title}} </h5></td>
+                            <td><h5>{{x.bidamt}}</h5> </td>
+                            <td><h5>{{x.quantity}}</h5></td>
+                            <td><h5>{{x.timestamp}}</h5></td-->
+                            <td></td>
+                            <td></td>
+                            <td><h5>{{x.quantity}}</h5></td>
+                            <td></td>
+
+                        </tr>
+                    </table>
+                </div>
+
+                <!--user items on sale-->
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>User Advertisements</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+
+                        <tr>
+                            <td>User Details</td>
+                            <td>Product Id</td>
+                            <td>Title</td>
+                            <td>Product Description</td>
+                            <td> Amount</td>
+                            <td>Available Quantity</td>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="x in sale track by $index">
+                            <td><h5>{{x.sellerdetails}} </h5></td>
+                            <td><h5>{{x.pid}}</h5></td>
+                            <td><h5>{{x.title}} </h5></td>
+                            <td><h5>{{x.desc}}</h5> </td>
+                            <td><h5>{{x.avail}}</h5></td>
+                            <td><h5>{{x.price}}</h5></td>
+
+                            <td></td>
+
+                        </tr>
+                    </table>
+                </div>
+
+                <!--user lastlogin-->
+
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>User Login/Logout Timelogs</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+
+                        <tr>
+                            <td>Start Time</td>
+                            <td>End TIme</td>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="x in log track by $index">
+                            <td><h5>{{x.endtime}} </h5></td>
+                            <td><h5>{{x.starttime}} </h5></td>
+
+                        </tr>
+                    </table>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+    var app=angular.module("myapp",[]);
+    app.controller("myctrl",function($scope,$http){
+        var qnt=1;
+        var total=0;
+        $http({
+            method:'get',
+            url:'/myebay'
+        }).success(function mysuccess(response){
+            console.log(response);
+            if(response.success)
+            {
+
+                console.log("bid"+response.udetails[0].bid);
+                console.log("firstname"+response.udetails[0].firstname);
+                console.log("userbuy"+response.udetails[0].userbuy);
+                console.log("userlogs"+response.udetails[0].userlogs);
+                console.log("sal"+response.sal);
+                console.log("sdetails"+response.sdetails[0]);
+                console.log("user"+response.user);
+                console.log("success"+response.success);
+
+
+                $scope.firstname=response.udetails[0].firstname;
+                $scope.lastname=response.udetails[0].lasttname;
+                $scope.user=response.user;
+
+                $scope.bid=response.udetails[0].bid;
+                $scope.buy=response.udetails[0].userbuy;
+                $scope.log=response.udetails[0].userlogs;
+                $scope.sale=response.sdetails;
+
+            }
+
+
+            else
+            {
+                //display that empty elements
+                window.alert("first signin");
+                window.location.assign("/index");
+            }
+        });
+
+        $scope.continue=function()
+        {
+            window.location.assign("/index");
+        }
+
+
+
+
+
+    });
+
+</script>
+
+
+</html>
